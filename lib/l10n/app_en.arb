@@ -1,0 +1,18 @@
+{
+  "islami": "Islami",
+  "surah_name" : "Surah Name",
+  "ayahs" : "Ayahs",
+  "number_of_praises" : "Praises Number",
+  "quran_radio" : "Holy Quran Radio",
+  "ahadeth" : "Ahadeth",
+  "quran" : "Quran",
+  "tasbeeh" : "Tasbeeh",
+  "radio" : "Radio",
+  "settings" : "Settings",
+  "language" : "Language",
+  "theme" : "Theme Mode",
+  "english" : "English",
+  "arabic" : "Arabic",
+  "dark" : "Dark",
+  "light" : "Light"
+  }
