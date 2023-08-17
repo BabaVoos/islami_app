@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:islamii/core/themes.dart';
 import 'package:islamii/layout/islami_layout.dart';
 import 'package:islamii/utils/my_container.dart';
+import 'package:provider/provider.dart';
+
+import '../../buisness_logic/settings_provider.dart';
 
 class SplashView extends StatefulWidget {
   static const String splashView = 'splash_view';
@@ -30,16 +33,15 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingsProvider>(context,);
     return MyContainer(
-      image: AppThemes.themeMode != ThemeMode.dark
-          ? 'assets/images/splash_background_light.png' :'assets/images/splash_background_dark.png',
+      image: provider.changeSplashBackground(),
       child: Scaffold(
         body: Stack(
           fit: StackFit.expand,
           children: [
             Image.asset(
-              AppThemes.themeMode != ThemeMode.dark ?
-              'assets/images/logo_light.png' : 'assets/images/logo_dark.png',
+              provider.changeSplashLogo(),
             ),
             Positioned(
               bottom: 0,
@@ -48,10 +50,7 @@ class _SplashViewState extends State<SplashView> {
                   .size
                   .width / 4,
               child: Image.asset(
-                AppThemes.themeMode != ThemeMode.dark
-                    ?
-                'assets/images/title_light.png'
-                    : 'assets/images/title_dark.png',
+                provider.changeSplashTitle(),
               ),
             ),
           ],

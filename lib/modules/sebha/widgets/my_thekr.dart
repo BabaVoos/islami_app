@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islamii/core/themes.dart';
+import 'package:provider/provider.dart';
+
+import '../../../buisness_logic/settings_provider.dart';
 
 class MyThekr extends StatelessWidget {
   const MyThekr({Key? key, required this.thekr}) : super(key: key);
@@ -7,6 +10,7 @@ class MyThekr extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingsProvider>(context,);
     var theme = Theme.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(
@@ -21,7 +25,7 @@ class MyThekr extends StatelessWidget {
       ),
       child: Text(
         thekr,
-        style: AppThemes.themeMode == ThemeMode.dark
+        style: provider.themeMode == ThemeMode.dark
             ? theme.textTheme.bodyLarge!.copyWith(
           color: theme.primaryColor,
         )

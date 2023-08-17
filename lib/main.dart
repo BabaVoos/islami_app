@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamii/buisness_logic/settings_provider.dart';
 import 'package:islamii/core/themes.dart';
 import 'package:islamii/layout/islami_layout.dart';
 import 'package:islamii/modules/hadeth/hadeth_view.dart';
@@ -9,11 +10,16 @@ import 'package:islamii/modules/sebha/sebha_view.dart';
 import 'package:islamii/modules/settings/settings_view.dart';
 import 'package:islamii/modules/splash/splash_view.dart';
 import 'package:islamii/modules/surah_content/surah_content_view.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => SettingsProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -22,15 +28,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingsProvider>(context);
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: const Locale(
-        'ar',
+      locale: Locale(
+        provider.defaultLanguage,
       ),
       theme: AppThemes.lightTheme,
       darkTheme: AppThemes.darkTheme,
-      themeMode: AppThemes.themeMode,
+      themeMode: provider.themeMode,
       debugShowCheckedModeBanner: false,
       initialRoute: SplashView.splashView,
       routes: {
@@ -42,7 +49,8 @@ class MyApp extends StatelessWidget {
         RadioView.radioView: (context) => const RadioView(),
         SettingsView.settingsView: (context) => const SettingsView(),
         SurahContentView.surahContentView: (context) => SurahContentView(),
-        HadethContentView.hadethContentView: (context) => const HadethContentView(),
+        HadethContentView.hadethContentView: (context) =>
+            const HadethContentView(),
       },
     );
   }

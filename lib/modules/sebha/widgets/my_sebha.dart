@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../core/themes.dart';
+import 'package:provider/provider.dart';
+import '../../../buisness_logic/settings_provider.dart';
 
 class MySebha extends StatelessWidget {
   final void Function()? onTap;
@@ -8,7 +9,7 @@ class MySebha extends StatelessWidget {
 
   @override
   Widget build(BuildContext context,) {
-    var theme = Theme.of(context,);
+    var provider = Provider.of<SettingsProvider>(context,);
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: Stack(
@@ -23,9 +24,7 @@ class MySebha extends StatelessWidget {
               child: Transform.rotate(
                 angle: angle,
                 child: Image.asset(
-                  AppThemes.themeMode != ThemeMode.dark
-                      ? 'assets/images/sebha_body.png'
-                      : 'assets/images/sebha_body_dark.png',
+                  provider.changeSebha()[0],
                   fit: BoxFit.fill,
                 ),
               ),
@@ -34,9 +33,7 @@ class MySebha extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Image.asset(
-              AppThemes.themeMode != ThemeMode.dark
-                  ? 'assets/images/sebha_head.png'
-                  : 'assets/images/sebha_head_dark.png',
+              provider.changeSebha()[1],
               fit: BoxFit.fill,
             ),
           ),

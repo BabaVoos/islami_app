@@ -1,7 +1,7 @@
 {
   "islami": "إسلامي",
   "surah_name" : "إسم السورة",
-  "ayahs" : "عدد الأيات",
+  "ayahs" : "رقم السورة",
   "number_of_praises" : "عدد التسبيحات",
   "quran_radio" : "إذاعة القرآن الكريم",
   "ahadeth" : "الأحاديث",

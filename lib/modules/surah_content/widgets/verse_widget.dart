@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islamii/core/colors.dart';
+import 'package:provider/provider.dart';
 
+import '../../../buisness_logic/settings_provider.dart';
 import '../../../core/themes.dart';
 
 class VerseWidget extends StatelessWidget {
@@ -13,12 +15,13 @@ class VerseWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    var provider = Provider.of<SettingsProvider>(context,);
     return RichText(
       textDirection: TextDirection.rtl,
       textAlign: TextAlign.center,
       text: TextSpan(
         text: text,
-        style: AppThemes.themeMode == ThemeMode.dark
+        style: provider.themeMode == ThemeMode.dark
             ? theme.textTheme.bodySmall!.copyWith(
                 color: AppColors.darkGoldColor,
               )
@@ -27,7 +30,7 @@ class VerseWidget extends StatelessWidget {
           WidgetSpan(
             child: Text(
               '{${index + 1}}',
-              style: AppThemes.themeMode == ThemeMode.dark
+              style: provider.themeMode == ThemeMode.dark
                   ? theme.textTheme.bodySmall!.copyWith(
                       color: AppColors.darkGoldColor,
                     )
