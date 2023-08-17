@@ -36,7 +36,7 @@ class SurahTitleHeaderWidget extends StatelessWidget {
               ),
               Expanded(
                 child: Text(
-                  lang!.surah_name,
+                  lang.surah_name,
                   style: theme.textTheme.bodyMedium,
                   textAlign: TextAlign.center,
                 ),

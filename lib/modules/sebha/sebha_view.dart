@@ -37,7 +37,7 @@ class _SebhaViewState extends State<SebhaView> {
             onTap: () {
               setState(
                 () {
-                  angle += 2;
+                  angle +=2;
                   counter++;
                   if (counter > 33) {
                     counter = 0;

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamii/core/colors.dart';
 
-
 class AppThemes {
-  static ThemeMode themeMode = ThemeMode.light;
   static ThemeData lightTheme = ThemeData(
     primaryColor: AppColors.lightPrimaryColor,
     canvasColor: AppColors.lightPrimaryColor,
@@ -57,6 +55,19 @@ class AppThemes {
       bodySmall: TextStyle(
         fontSize: 20,
         color: Colors.black,
+      ),
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: AppColors.lightPrimaryColor.withOpacity(.7,),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(
+            50,
+          ),
+          topRight: Radius.circular(
+            50,
+          ),
+        ),
       ),
     ),
   );
@@ -115,5 +126,19 @@ class AppThemes {
         color: AppColors.darkGoldColor,
       ),
     ),
+    bottomSheetTheme:  BottomSheetThemeData(
+      backgroundColor: AppColors.darkPrimaryColor.withOpacity(.7,),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(
+            50,
+          ),
+          topRight: Radius.circular(
+            50,
+          ),
+        ),
+      ),
+    ),
+
   );
 }

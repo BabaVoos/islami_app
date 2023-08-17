@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamii/buisness_logic/settings_provider.dart';
 import 'package:islamii/core/themes.dart';
 import 'package:islamii/modules/hadeth/hadeth_view.dart';
 import 'package:islamii/modules/radio/radio_view.dart';
@@ -6,6 +7,7 @@ import 'package:islamii/modules/sebha/sebha_view.dart';
 import 'package:islamii/modules/settings/settings_view.dart';
 import 'package:islamii/utils/my_bottom_navigation_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import '../modules/quran/quran_view.dart';
 import '../utils/my_container.dart';
 
@@ -35,8 +37,9 @@ class _IslamiLayoutState extends State<IslamiLayout> {
   @override
   Widget build(BuildContext context) {
       var lang = AppLocalizations.of(context);
+      var provider = Provider.of<SettingsProvider>(context,);
     return MyContainer(
-      image: AppThemes.themeMode != ThemeMode.dark ?  'assets/images/light-background.png' : 'assets/images/background_dark.png',
+      image: provider.changeBackground(),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
